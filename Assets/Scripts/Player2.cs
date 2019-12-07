@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player2 : MonoBehaviour
 {
-
+    public Player player;
     public float m_JumpSpeed = 400f;
     private bool m_jumping = false;
     private Rigidbody m_Rigidbody;
@@ -15,6 +15,7 @@ public class Player2 : MonoBehaviour
     {
         m_Anim = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
+        player = GetComponent<Player>();
     }
 
 
@@ -30,6 +31,7 @@ public class Player2 : MonoBehaviour
         {
             Jump();
         }
+
     }
 
     private void Jump()
@@ -41,7 +43,7 @@ public class Player2 : MonoBehaviour
           
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         grounded = true;
     }
