@@ -31,6 +31,24 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetAxis("Mouse ScrollWheel") < 0)
+
+            if (Camera.main.fieldOfView <= 70)
+            {
+                Camera.main.fieldOfView += 5;
+            }
+    
+        
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+
+            if (Camera.main.fieldOfView >= 30)
+            {
+                Camera.main.fieldOfView -= 5;
+            }
+        }
+
         if (axes == RotationAxes.MouseX)
         {
             transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityHor, 0);
